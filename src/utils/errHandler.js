@@ -1,4 +1,5 @@
 export const errHandler = (type, error, dispatch) => {
+  console.log(error);
   dispatch({
     type: type,
     payload:

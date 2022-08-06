@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
+import { useDispatch } from "react-redux";
 import { BiMessageSquareEdit } from "react-icons/bi";
 import { IoMdTrash } from "react-icons/io";
-import { deleteAgenda } from "../Store/actions/agendaActions";
+import { deleteAgenda, updateAgenda } from "../Store/actions/agendaActions";
 import Icon from "./Icon";
-import { useDispatch } from "react-redux";
 
 const AgendaSingle = forwardRef(({ agenda }, ref) => {
   const dispatch = useDispatch();
@@ -27,7 +27,10 @@ const AgendaSingle = forwardRef(({ agenda }, ref) => {
         </div>
         <div className="flex flex-row gap-5">
           <Icon Icon={IoMdTrash} onClick={() => dispatch(deleteAgenda(id))} />
-          <Icon Icon={BiMessageSquareEdit} />
+          <Icon
+            Icon={BiMessageSquareEdit}
+            onClick={() => dispatch(updateAgenda(id))}
+          />
         </div>
       </div>
     </div>
