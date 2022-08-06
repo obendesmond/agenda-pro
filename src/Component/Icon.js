@@ -3,11 +3,9 @@ import React from "react";
 export default function Icon({ Icon, className, onClick }) {
   return (
     Icon && (
-      <Icon
-        size={20}
-        className={`text-blueColor cursor-pointer ${className}`}
-        onClick={onClick}
-      />
+      <div className="hover:bg-greyColor bg-transparent p-2 rounded-full cursor-pointer">
+        <Icon size={20} className={`${className}`} onClick={onClick} />
+      </div>
     )
   );
 }

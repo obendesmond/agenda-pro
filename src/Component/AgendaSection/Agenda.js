@@ -13,12 +13,16 @@ export default function Agenda() {
   }, [dispatch]);
 
   return (
-    <div className="flex-[0.5] w-full">
-      <FlipMove>
-        {agendaList?.map(agenda => (
-          <AgendaSingle key={agenda.id} agenda={agenda} />
-        ))}
-      </FlipMove>
+    <div className="flex-[0.5] w-full bg-greyColor">
+      <div className="bg-white top-0 sticky z-50 drop-shadow-md py-7 w-full"></div>
+      <div className="container mx-auto p-10 ">
+        <p className="text-4xl mb-5">All My Agenda</p>
+        <FlipMove>
+          {agendaList?.map(agenda => (
+            <AgendaSingle key={agenda.id} agenda={agenda} />
+          ))}
+        </FlipMove>
+      </div>
     </div>
   );
 }

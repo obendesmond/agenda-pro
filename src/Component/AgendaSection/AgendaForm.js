@@ -55,8 +55,8 @@ export default function AgendaForm() {
       }}
     >
       <div className="flex flex-col items-center justify-center h-full gap-10">
-        <p className="text-white text-4xl">Keep track of your day</p>
-        <div className=" bg-white  p-10 w-[412px] h-[551px] flex flex-col gap-5 rounded-md">
+        <p className="text-white text-4xl">Keep Track Of Your Day</p>
+        <div className=" bg-white  p-10 w-[412px] h-[551px] flex flex-col gap-5 rounded-2xl">
           <Input
             text={subject}
             setText={setSubject}
