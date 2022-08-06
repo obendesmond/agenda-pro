@@ -5,7 +5,6 @@ import TextArea from "../TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import { addAgenda } from "../../Store/actions/agendaActions";
 import bgImage from "../../Assets/agenda_bg.jpeg";
-import Container from "../Container";
 
 export default function AgendaForm() {
   const dispatch = useDispatch();
