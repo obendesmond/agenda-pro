@@ -1,4 +1,4 @@
-import { errHandler } from "../../utils/errHandler";
+import { errHandler } from "../../Utils/errHandler";
 import agendaListData from "../data/agendaListData";
 import { v4 as uuidv4 } from "uuid";
 import {

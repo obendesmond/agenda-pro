@@ -4,6 +4,8 @@ import Input from "../Input";
 import TextArea from "../TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import { addAgenda } from "../../Store/actions/agendaActions";
+import bgImage from "../../Assets/agenda_bg.jpeg";
+import Container from "../Container";
 
 export default function AgendaForm() {
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ export default function AgendaForm() {
 
   useEffect(() => {
     if (currentAgendaEdit.id) {
-      const { id, time, subject, location, description } = currentAgendaEdit;
+      const { time, subject, location, description } = currentAgendaEdit;
       setTime(time);
       setSubject(subject);
       setLocation(location);
@@ -23,7 +25,7 @@ export default function AgendaForm() {
     }
   }, [currentAgendaEdit]);
 
-  // handle form submittion
+  // handle form submission
   const handleOnClick = () => {
     const agenda = { time, subject, location, description };
     if (!time || !subject) return alert("Enter time and subject");
@@ -32,6 +34,7 @@ export default function AgendaForm() {
     reset();
   };
 
+  // handle file upload
   const handleFileUpload = () => {};
 
   //   reset form
@@ -43,31 +46,42 @@ export default function AgendaForm() {
   };
 
   return (
-    <div className="w-full flex-[0.4]">
-      <div className="top-20 sticky bg-white p-10 flex flex-col gap-5 rounded-md">
-        <Input
-          text={subject}
-          setText={setSubject}
-          placeholder="Enter Subject *: Breakfast with Desmond"
-        />
-        <Input
-          text={time}
-          setText={setTime}
-          placeholder="Enter Time *: 8:30 am - 9:45 am"
-        />
-        <Input
-          text={location}
-          setText={setLocation}
-          placeholder="Enter Location (Optional): Omni Caffe"
-        />
-        <TextArea
-          text={description}
-          setText={setDescription}
-          placeholder="Enter Description (optional)"
-        />
-        <Button onClick={handleOnClick} text="Add Agenda" />
-        <p className="text-center">or</p>
-        <Button onClick={handleFileUpload} text="Upload Agenda" />
+    <div
+      className="w-full h-[100vh] flex-[0.5] top-0 sticky z-50"
+      style={{
+        background: `url(${bgImage})`,
+        backgroundPosition: "top right",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="flex flex-col items-center justify-center h-full gap-10">
+        <p className="text-white text-4xl">Keep track of your day</p>
+        <div className=" bg-white  p-10 w-[412px] h-[551px] flex flex-col gap-5 rounded-md">
+          <Input
+            text={subject}
+            setText={setSubject}
+            placeholder="Enter Subject *: Breakfast with Desmond"
+          />
+          <Input
+            text={time}
+            setText={setTime}
+            placeholder="Enter Time *: 8:30 am - 9:45 am"
+          />
+          <Input
+            text={location}
+            setText={setLocation}
+            placeholder="Enter Location (Optional): Omni Caffe"
+          />
+          <TextArea
+            text={description}
+            setText={setDescription}
+            placeholder="Enter Description (optional)"
+          />
+          <Button onClick={handleOnClick} text="Add Agenda" />
+          <p className="text-center">or</p>
+          <Button onClick={handleFileUpload} text="Upload Agenda" />
+        </div>
       </div>
     </div>
   );

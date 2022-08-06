@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAgendaList } from "../../Store/actions/agendaActions";
 import AgendaSingle from "../AgendaSingle";
@@ -10,10 +10,10 @@ export default function Agenda() {
 
   useEffect(() => {
     dispatch(getAgendaList()); // get agenda list
-  }, []);
+  }, [dispatch]);
 
   return (
-    <div className="flex-[0.6] w-full">
+    <div className="flex-[0.5] w-full">
       <FlipMove>
         {agendaList?.map(agenda => (
           <AgendaSingle key={agenda.id} agenda={agenda} />
