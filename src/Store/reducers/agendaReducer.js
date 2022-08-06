@@ -8,10 +8,13 @@ const initialState = {
   agendaList: [],
   loading: false,
   error: null,
-  time: "text time",
-  subject: "test subject",
-  location: "test location",
-  description: "test description",
+  currentAgenda: {
+    id: 11234,
+    time: "Time",
+    subject: "Subject 1",
+    location: "Location",
+    description: "Description",
+  },
 };
 
 export const agendaReducer = (state = initialState, action) => {
