@@ -25,28 +25,30 @@ export default function AgendaForm() {
   };
 
   return (
-    <div className="bg-white rounded-md w-full flex-[0.4] flex flex-col p-10 gap-5">
-      <Input
-        text={time}
-        setText={setTime}
-        placeholder="Enter Time *: 8:30 am - 9:45 am"
-      />
-      <Input
-        text={subject}
-        setText={setSubject}
-        placeholder="Enter Subject *: Breakfast with Desmond"
-      />
-      <Input
-        text={location}
-        setText={setLocation}
-        placeholder="Enter Location (Optional): Omni Caffe"
-      />
-      <TextArea
-        text={description}
-        setText={setDescription}
-        placeholder="Enter Description (optional)"
-      />
-      <Button onClick={handleOnClick} text="Add Agenda" />
+    <div className="w-full flex-[0.4]">
+      <div className="bg-white p-10 flex flex-col gap-5 rounded-md">
+        <Input
+          text={time}
+          setText={setTime}
+          placeholder="Enter Time *: 8:30 am - 9:45 am"
+        />
+        <Input
+          text={subject}
+          setText={setSubject}
+          placeholder="Enter Subject *: Breakfast with Desmond"
+        />
+        <Input
+          text={location}
+          setText={setLocation}
+          placeholder="Enter Location (Optional): Omni Caffe"
+        />
+        <TextArea
+          text={description}
+          setText={setDescription}
+          placeholder="Enter Description (optional)"
+        />
+        <Button onClick={handleOnClick} text="Add Agenda" />
+      </div>
     </div>
   );
 }
