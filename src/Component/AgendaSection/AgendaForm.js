@@ -25,11 +25,11 @@ export default function AgendaForm() {
   };
 
   return (
-    <div className="bg-white rounded-md w-full flex-[0.6] flex flex-col p-10 gap-5">
+    <div className="bg-white rounded-md w-full flex-[0.4] flex flex-col p-10 gap-5">
       <Input
         text={time}
         setText={setTime}
-        placeholder="Enter Time *: 8:30 am"
+        placeholder="Enter Time *: 8:30 am - 9:45 am"
       />
       <Input
         text={subject}
