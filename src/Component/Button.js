@@ -1,9 +1,12 @@
 import React from "react";
 import Spinner from "react-spinkit";
 
-export default function Button({ text, className }) {
+export default function Button({ text, onClick }) {
   return (
-    <div className="bg-blueColor w-full rounded-md text-white p-3 cursor-pointer text-center flex flex-row justify-center gap-20">
+    <div
+      onClick={onClick}
+      className="bg-blueColor w-full rounded-md text-white p-3 cursor-pointer text-center flex flex-row justify-center gap-20"
+    >
       {text}
       <Spinner name="circle" color="white" />
     </div>
