@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import TextArea from "../TextArea";
+import { useDispatch } from "react-redux";
+import { addAgenda } from "../../Store/actions/agendaActions";
 
 export default function AgendaForm() {
+  const dispatch = useDispatch();
   const [time, setTime] = useState("");
   const [subject, setSubject] = useState("");
   const [location, setLocation] = useState("");
@@ -12,9 +15,11 @@ export default function AgendaForm() {
   // handle form submittion
   const handleOnClick = () => {
     if (!time || !subject) return console.log("Enter time and subject");
-    console.log({ time, subject, location, description });
+    dispatch(addAgenda({ time, subject, location, description }));
     reset();
   };
+
+  const handleFileUpload = () => {};
 
   //   reset form
   const reset = () => {
@@ -26,7 +31,7 @@ export default function AgendaForm() {
 
   return (
     <div className="w-full flex-[0.4]">
-      <div className="bg-white p-10 flex flex-col gap-5 rounded-md">
+      <div className="top-20 sticky bg-white p-10 flex flex-col gap-5 rounded-md">
         <Input
           text={time}
           setText={setTime}
@@ -48,6 +53,8 @@ export default function AgendaForm() {
           placeholder="Enter Description (optional)"
         />
         <Button onClick={handleOnClick} text="Add Agenda" />
+        <p className="text-center">or</p>
+        <Button onClick={handleFileUpload} text="Upload Agenda" />
       </div>
     </div>
   );

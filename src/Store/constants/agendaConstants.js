@@ -1,3 +1,9 @@
+// get agenda constants
 export const GET_AGENDA_LIST_REQUEST = "GET_AGENDA_LIST_REQUEST";
 export const GET_AGENDA_LIST_SUCCESS = "GET_AGENDA_LIST_SUCCESS";
 export const GET_AGENDA_LIST_FAIL = "GET_AGENDA_LIST_FAIL";
+
+// add agenda constants
+export const ADD_AGENDA_REQUEST = "ADD_AGENDA_REQUEST";
+export const ADD_AGENDA_SUCCESS = "ADD_AGENDA_SUCCESS";
+export const ADD_AGENDA_FAIL = "ADD_AGENDA_FAIL";
