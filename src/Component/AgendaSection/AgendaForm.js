@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import TextArea from "../TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import { addAgenda } from "../../Store/actions/agendaActions";
 import bgImage from "../../Assets/agenda_bg.jpeg";
+import { MdCloudUpload, MdAdd } from "react-icons/md";
 
 export default function AgendaForm() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export default function AgendaForm() {
   const [subject, setSubject] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const fileUploadRef = useRef(null);
 
   useEffect(() => {
     if (currentAgendaEdit.id) {
@@ -34,7 +36,9 @@ export default function AgendaForm() {
   };
 
   // handle file upload
-  const handleFileUpload = () => {};
+  const handleFileUpload = () => {
+    fileUploadRef.current.click();
+  };
 
   //   reset form
   const reset = () => {
@@ -77,9 +81,15 @@ export default function AgendaForm() {
             setText={setDescription}
             placeholder="Enter Description (optional)"
           />
-          <Button onClick={handleOnClick} text="Add Agenda" />
+          <Button onClick={handleOnClick} text="Add Agenda" Icon={MdAdd} />
           <p className="text-center">or</p>
-          <Button onClick={handleFileUpload} text="Upload Agenda" />
+          <Button
+            text="Choose CSV File"
+            onClick={handleFileUpload}
+            Icon={MdCloudUpload}
+            upload
+            uploadInputRef={fileUploadRef}
+          />
         </div>
       </div>
     </div>

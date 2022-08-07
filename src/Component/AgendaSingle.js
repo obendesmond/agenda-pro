@@ -12,7 +12,7 @@ const AgendaSingle = forwardRef(({ agenda }, ref) => {
   return (
     <div
       ref={ref}
-      className="w-full mb-5 border-l-[15px] border-blueColor bg-white p-5 rounded-lg flex flex-col gap-2"
+      className="w-full mb-5 border-l-[15px] border-blueColor bg-white p-5 rounded-2xl flex flex-col gap-2"
     >
       <div className="flex flex-row items-center justify-between">
         <p className="text-xl text-black font-bold">{subject}</p>
