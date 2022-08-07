@@ -6,20 +6,15 @@ import { getAgendaList } from "../../Store/actions/agendaActions";
 import AgendaSingle from "../AgendaSingle";
 import Icon from "../Icon";
 import Button from "../Button";
+import CSVButton from "../CSVButton";
 
 export default function Agenda() {
-  const fileUploadRef = useRef(null);
   const dispatch = useDispatch();
   const { agendaList } = useSelector(state => state.agenda);
 
   useEffect(() => {
     dispatch(getAgendaList()); // get agenda list
   }, [dispatch]);
-
-  // handle file upload
-  const handleFileUpload = () => {
-    fileUploadRef.current.click();
-  };
 
   return (
     <div className="flex-[0.5] w-full bg-greyColor">
@@ -30,12 +25,7 @@ export default function Agenda() {
           onClick={() => alert("deleting all...")}
           size={25}
         />
-        <Button
-          text="Choose CSV File"
-          upload
-          onClick={handleFileUpload}
-          uploadInputRef={fileUploadRef}
-        />
+        <CSVButton />
       </div>
       <div className="container mx-auto p-10 ">
         <p className="text-4xl mb-5">
