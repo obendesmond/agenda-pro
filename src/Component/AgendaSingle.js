@@ -15,14 +15,14 @@ const AgendaSingle = forwardRef(({ agenda }, ref) => {
       className="w-full mb-5 border-l-[15px] border-blueColor bg-white p-5 rounded-2xl flex flex-col gap-2"
     >
       <div className="flex flex-row items-center justify-between">
-        <p className="text-xl text-black font-bold">{subject}</p>
+        <p className="text-lg md:text-xl text-black font-bold">{subject}</p>
         <Icon
           Icon={MdModeEditOutline}
           onClick={() => dispatch(updateAgenda(id))}
         />
       </div>
       <div className=" w-[90%]">
-        <p className=" text-gray-600">{description}</p>
+        <p className="text-gray-600">{description}</p>
       </div>
       <div className="flex flex-row justify-between items-end">
         <div>

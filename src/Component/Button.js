@@ -7,13 +7,22 @@ export default function Button({
   upload,
   uploadInputRef,
   Icon,
+  color,
 }) {
   return (
     <div
       onClick={onClick}
-      className="bg-blueColor flex flex-row gap-5 rounded-full px-5 py-2 items-center justify-between cursor-pointer drop-shadow-md"
+      className={`${
+        color || "bg-blueColor"
+      } flex flex-row gap-5 rounded-full px-5 py-2 items-center justify-between cursor-pointer drop-shadow-md`}
     >
-      <p className={`text-white ${!upload ? "p-2" : ""}`}>{text}</p>
+      <p
+        className={`text-white ${!upload ? "p-2" : ""} ${
+          !Icon && "text-center"
+        }`}
+      >
+        {text}
+      </p>
 
       {Icon && (
         <span className="bg-white p-2 rounded-full drop-shadow-md">
@@ -23,7 +32,12 @@ export default function Button({
       {/* <Spinner name="circle" color="white" /> */}
 
       {upload && uploadInputRef && (
-        <input ref={uploadInputRef} type="file" style={{ display: "none" }} />
+        <input
+          ref={uploadInputRef}
+          onChange={onClick}
+          type="file"
+          style={{ display: "none" }}
+        />
       )}
     </div>
   );
