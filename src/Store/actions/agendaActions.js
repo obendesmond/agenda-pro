@@ -8,6 +8,9 @@ import {
   DELETE_AGENDA_FAIL,
   DELETE_AGENDA_REQUEST,
   DELETE_AGENDA_SUCCESS,
+  DELETE_ALL_AGENDA_FAIL,
+  DELETE_ALL_AGENDA_REQUEST,
+  DELETE_ALL_AGENDA_SUCCESS,
   GET_AGENDA_LIST_FAIL,
   GET_AGENDA_LIST_REQUEST,
   GET_AGENDA_LIST_SUCCESS,
@@ -67,5 +70,16 @@ export const updateAgenda = id => dispatch => {
     dispatch({ type: UPDATE_AGENDA_SUCCESS, payload: id });
   } catch (error) {
     errHandler(UPDATE_AGENDA_FAIL, error, dispatch);
+  }
+};
+
+// delete all agenda
+export const deleteAllAgenda = () => dispatch => {
+  try {
+    dispatch({ type: DELETE_ALL_AGENDA_REQUEST });
+    // delete all agenda from db
+    dispatch({ type: DELETE_ALL_AGENDA_SUCCESS });
+  } catch (error) {
+    errHandler(DELETE_ALL_AGENDA_FAIL, error, dispatch);
   }
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import Spinner from "react-spinkit";
-import { MdCloudUpload, MdAdd } from "react-icons/md";
 
 export default function Button({
   text,

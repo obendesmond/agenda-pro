@@ -5,6 +5,9 @@ import {
   DELETE_AGENDA_FAIL,
   DELETE_AGENDA_REQUEST,
   DELETE_AGENDA_SUCCESS,
+  DELETE_ALL_AGENDA_FAIL,
+  DELETE_ALL_AGENDA_REQUEST,
+  DELETE_ALL_AGENDA_SUCCESS,
   GET_AGENDA_LIST_FAIL,
   GET_AGENDA_LIST_REQUEST,
   GET_AGENDA_LIST_SUCCESS,
@@ -23,11 +26,11 @@ export const agendaReducer = (state = initialState, action) => {
   switch (action.type) {
     // READ AGENDA
     case GET_AGENDA_LIST_REQUEST:
-      return { ...state, G_loading: true };
+      return { ...state, loading: true };
     case GET_AGENDA_LIST_SUCCESS:
-      return { ...state, G_loading: false, agendaList: action.payload };
+      return { ...state, loading: false, agendaList: action.payload };
     case GET_AGENDA_LIST_FAIL:
-      return { ...state, G_loading: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
 
     // ADD AGENDA or UPDATE AGENDA
     case ADD_AGENDA_REQUEST:
@@ -83,6 +86,14 @@ export const agendaReducer = (state = initialState, action) => {
       return { ...state, U_loading: false, currentAgendaEdit: AgEdit[0] };
     case UPDATE_AGENDA_FAIL:
       return { ...state, U_loading: false };
+
+    // DELETE ALL AGENDA
+    case DELETE_ALL_AGENDA_REQUEST:
+      return { ...state, loading: true };
+    case DELETE_ALL_AGENDA_SUCCESS:
+      return { ...state, loading: false, agendaList: [] };
+    case DELETE_ALL_AGENDA_FAIL:
+      return { ...state, loading: false };
 
     default:
       return state;

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import TextArea from "../TextArea";
@@ -29,7 +29,7 @@ export default function AgendaForm() {
   // handle form submission
   const handleOnClick = () => {
     const agenda = { time, subject, location, description };
-    if (!time || !subject) return alert("Enter time and subject");
+    if (!time || !subject) return alert("Atleast enter a subject and time");
     if (currentAgendaEdit.id) agenda.id = currentAgendaEdit.id; // add id if it's to edit
     dispatch(addAgenda(agenda));
     reset();
