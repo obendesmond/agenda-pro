@@ -49,7 +49,7 @@ export default function CSVButton({ icon }) {
 
   return (
     <Button
-      text={file ? `Upload ${file.name}` : "Choose CSV File"}
+      text={file ? `Upload "${file.name}" to agenda` : "Choose CSV File"}
       onClick={file ? handleFileUpload : handleFileChange}
       color={file ? "bg-green-500" : null}
       Icon={icon ? MdCloudUpload : null}

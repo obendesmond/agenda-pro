@@ -76,7 +76,11 @@ export default function AgendaForm() {
             setText={setDescription}
             placeholder="Enter Description (optional)"
           />
-          <Button onClick={handleOnClick} text="Add Agenda" Icon={MdAdd} />
+          <Button
+            onClick={handleOnClick}
+            text={currentAgendaEdit.id ? "Save Agenda" : "Add Agenda"}
+            Icon={MdAdd}
+          />
           <p className="text-center">or</p>
           <CSVButton icon />
         </div>
