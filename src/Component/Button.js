@@ -1,5 +1,6 @@
 import React from "react";
 import Spinner from "react-spinkit";
+import CircularIcon from "./CircularIcon";
 
 export default function Button({
   text,
@@ -24,11 +25,7 @@ export default function Button({
         {text}
       </p>
 
-      {Icon && (
-        <span className="bg-white p-2 rounded-full drop-shadow-md">
-          <Icon size="25" />
-        </span>
-      )}
+      {Icon && <CircularIcon Icon={Icon} />}
       {/* <Spinner name="circle" color="white" /> */}
 
       {upload && uploadInputRef && (
