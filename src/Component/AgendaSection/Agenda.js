@@ -44,12 +44,15 @@ export default function Agenda() {
   };
 
   const handleDownloadCsv = () => {
-    // loop through and take out id
-    const agenda = agendaList.map(a => {
-      delete a.id;
-      return a;
-    });
-    csvExporter.generateCsv(agenda);
+    // check if agendaList is present
+    if (agendaList.length > 0) {
+      // loop through and take out id
+      const agenda = agendaList.map(a => {
+        delete a.id;
+        return a;
+      });
+      csvExporter.generateCsv(agenda);
+    } else alert("Add atleast one agenda before exporting");
   };
 
   return (
